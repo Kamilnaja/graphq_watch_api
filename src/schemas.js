@@ -8,7 +8,7 @@ type Query {
 
 type Watch {
   id: ID!
-  company: Company
+  company: Company!
   name: String
   diameter: Float
   caseMaterial: CaseMaterial

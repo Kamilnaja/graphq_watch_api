@@ -1,10 +1,10 @@
 const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
 const schema = require("./schemas");
-const db = require("./db");
+const { watches, companies } = require("./db");
 const app = express();
 
-var root = { watches: () => db };
+var root = { watches: () => watches(), companies: () => companies() };
 
 app.use(
   "/graphql",

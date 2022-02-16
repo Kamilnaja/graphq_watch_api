@@ -1,4 +1,20 @@
-const watches = [
+const { Sequelize } = require("sequelize");
+const sequelize = new Sequelize({
+  dialect: "sqlite",
+  storage: "../db.sqlite",
+});
+
+async function connectDb() {
+  try {
+    await sequelize.authenticate();
+    console.log("Connection has been established successfully");
+  } catch (e) {
+    console.error("Unable to connect to the db:", e);
+  }
+}
+connectDb();
+
+const watches = () => [
   {
     id: 1,
     name: "Rolex Submariner Hulk",
@@ -37,4 +53,22 @@ const watches = [
   },
 ];
 
-module.exports = watches;
+const companies = () => [
+  {
+    id: 1,
+    name: "Rolex",
+    country: "Switzerland",
+  },
+  {
+    id: 3,
+    name: "Omega",
+    country: "Switzerland",
+  },
+  {
+    id: 3,
+    name: "Omega",
+    country: "Switzerland",
+  },
+];
+
+module.exports = { watches, companies };
