@@ -18,6 +18,8 @@ const Watch = sequelize.define("Watch", {
       onUpdate: "cascade",
     },
   },
+  diameter: DataTypes.INTEGER,
+  price: DataTypes.INTEGER,
 });
 
 Watch.hasOne(Company);

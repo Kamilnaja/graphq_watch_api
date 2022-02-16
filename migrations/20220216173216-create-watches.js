@@ -20,6 +20,8 @@ module.exports = {
             onUpdate: "cascade",
           },
         },
+        diameter: Sequelize.INTEGER,
+        price: Sequelize.INTEGER,
       }),
     ]);
   },
