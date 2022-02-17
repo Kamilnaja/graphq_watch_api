@@ -1,16 +1,17 @@
 const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
 const schema = require("./schemas");
-const { watches, companies } = require("./db");
+const resolvers = require("../graphql/resolvers");
+const typeDefs = require("../graphql/schemas");
+const context = require("../graphql/context");
 const app = express();
-
-var root = { watches: () => watches(), companies: () => companies() };
 
 app.use(
   "/graphql",
   graphqlHTTP({
-    schema,
-    rootValue: root,
+    typeDefs,
+    resolvers,
+    context,
     graphiql: true,
   })
 );

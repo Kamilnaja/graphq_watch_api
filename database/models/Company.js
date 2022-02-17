@@ -11,4 +11,6 @@ const Company = sequelize.define("Company", {
   country: DataTypes.STRING,
 });
 
-Company.hasMany(Watch);
+Company.hasMany(models.Watch);
+
+module.exports = Company;

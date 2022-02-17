@@ -22,4 +22,4 @@ const Watch = sequelize.define("Watch", {
   price: DataTypes.INTEGER,
 });
 
-Watch.hasOne(Company);
+Watch.hasOne(models.Company);
