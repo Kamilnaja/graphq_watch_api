@@ -1,26 +1,29 @@
-// database/models/index.js
-
 const fs = require("fs");
 const path = require("path");
 const Sequelize = require("sequelize");
-
-const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || "development";
-
+const config = require(path.join(__dirname, "..", "config", "config.json"))[
+  env
+];
+const sequelize = new Sequelize(
+  config.database,
+  config.username,
+  config.password,
+  config
+);
 const db = {};
-let sequelize;
+
 fs.readdirSync(__dirname)
-  .filter(
-    (file) =>
-      file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js"
-  )
-  .forEach((file) => {
-    const model = sequelize.require(path.join(__dirname, file));
+  .filter(function (file) {
+    return file.indexOf(".") !== 0 && file !== "index.js";
+  })
+  .forEach(function (file) {
+    var model = require(path.join(__dirname, file));
     db[model.name] = model;
   });
 
-Object.keys(db).forEach((modelName) => {
-  if (db[modelName].associate) {
+Object.keys(db).forEach(function (modelName) {
+  if ("associate" in db[modelName]) {
     db[modelName].associate(db);
   }
 });
