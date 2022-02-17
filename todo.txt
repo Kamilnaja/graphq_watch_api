@@ -1,0 +1,5 @@
+enum types for case material
+adding watch to watches
+adding company to companies 
+get watches
+get companies
