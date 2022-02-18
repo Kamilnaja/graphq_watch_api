@@ -1,9 +1,11 @@
-const { gql } = require("apollo-server");
+const { buildSchema } = require("graphql");
 
-module.exports = gql`
+const company = buildSchema(`
   type Company {
     id: Int!
     name: String!
     country: String
   }
-`;
+`);
+
+module.exports = company;

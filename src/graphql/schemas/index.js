@@ -1,14 +1,14 @@
-const { gql } = require("apollo-server");
 const watchType = require("./watch");
 const companyType = require("./company");
+const { buildSchema } = require("graphql");
 
-const rootType = gql`
+const rootType = buildSchema(`
   type Query {
-    root: String
+    hello: String
   }
   type Mutation {
     root: String
   }
-`;
+`);
 
-module.exports = [rootType, watchType, companyType];
+module.exports = { rootType, watchType, companyType };

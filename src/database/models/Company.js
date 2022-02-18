@@ -1,15 +1,14 @@
-const { DataTypes } = require("sequelize");
-
 module.exports = function (sequelize, Sequelize) {
   const Company = sequelize.define("Company", {
     id: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.INTEGER,
       autoIncrement: true,
       primaryKey: true,
     },
-    name: DataTypes.STRING,
-    country: DataTypes.STRING,
+    name: Sequelize.STRING,
+    country: Sequelize.STRING,
   });
 
   Company.hasMany(models.Watch);
+  return Company;
 };
