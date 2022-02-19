@@ -13,22 +13,21 @@ const sequelize = new Sequelize(
 );
 const db = {};
 
-fs.readdirSync(__dirname)
-  .filter(function (file) {
-    return file.indexOf(".") !== 0 && file !== "index.js";
-  })
-  .forEach(function (file) {
-    var model = require(path.join(__dirname, file));
-    db[model.name] = model;
-  });
-
-Object.keys(db).forEach(function (modelName) {
-  if ("associate" in db[modelName]) {
-    db[modelName].associate(db);
-  }
-});
-
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+fs.readdirSync(__dirname)
+  .filter((file) => file.indexOf(".") !== 0 && file !== "index.js")
+  .forEach((file) => {
+    const modelName = getModelName(file);
+    db[getModelName(file)] = require(path.join(__dirname, file))(
+      sequelize,
+      Sequelize
+    );
+  });
+
+function getModelName(modelName) {
+  return modelName.split(".")[0].toLowerCase();
+}
 
 module.exports = db;

@@ -1,23 +1,28 @@
-const sequelize = require("sequelize");
-const watch = sequelize.define("Watch", {
-  id: {
-    type: DataTypes.INTEGER,
-    autoIncrement: true,
-    primaryKey: true,
-  },
-  name: DataTypes.STRING,
-  caseMaterial: DataTypes.STRING,
-  companyId: {
-    type: Sequelize.INTEGER,
-    references: {
-      model: "Company",
-      key: "id",
-      onDelete: "cascade",
-      onUpdate: "cascade",
+module.exports = function (sequelize, Sequelize) {
+  return sequelize.define(
+    "Watch",
+    {
+      id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      name: Sequelize.STRING,
+      caseMaterial: Sequelize.STRING,
+      companyId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Company",
+          key: "id",
+          onDelete: "cascade",
+          onUpdate: "cascade",
+        },
+      },
+      diameter: Sequelize.INTEGER,
+      price: Sequelize.INTEGER,
     },
-  },
-  diameter: DataTypes.INTEGER,
-  price: DataTypes.INTEGER,
-});
-
-module.exports = watch;
+    {
+      modelName: "Watch",
+    }
+  );
+};
