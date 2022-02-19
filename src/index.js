@@ -1,7 +1,7 @@
 const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
-const schema = require("./graphql/schemas/testSchema");
-const rootValue = require("./graphql/resolvers/testResolver");
+const schema = require("./graphql/schemas/");
+const rootValue = require("./graphql/resolvers");
 const context = require("./graphql/context");
 
 const app = express();

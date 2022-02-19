@@ -1,14 +1,26 @@
-const watchType = require("./watch");
-const companyType = require("./company");
-const { buildSchema } = require("graphql");
+const gql = require("graphql-tag");
+const { buildASTSchema } = require("graphql");
 
-const rootType = buildSchema(`
+const schema = buildASTSchema(gql`
   type Query {
-    hello: String
+    watch: [Watch]
+    company: [Company]
   }
-  type Mutation {
-    root: String
+
+  type Watch {
+    id: Int!
+    name: String!
+    caseMaterial: String!
+    companyId: Int!
+    diameter: Int!
+    price: Int
+  }
+
+  type Company {
+    id: Int!
+    name: String!
+    country: String
   }
 `);
 
-module.exports = { rootType, watchType, companyType };
+module.exports = schema;

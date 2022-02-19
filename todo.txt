@@ -1,6 +1,8 @@
+get watch by id
+get company by id
 enum types for case material
 adding watch to watches
 adding company to companies 
-get watches
-get companies
+x get watches
+x get companies
 subscriptions
