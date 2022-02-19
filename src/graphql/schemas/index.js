@@ -1,26 +1,14 @@
-const gql = require("graphql-tag");
-const { buildASTSchema } = require("graphql");
+const { makeExecutableSchema } = require("@graphql-tools/schema");
+const Company = require("./company");
+const Watch = require("./watch");
 
-const schema = buildASTSchema(gql`
+const Query = `
   type Query {
     watch: [Watch]
     company: [Company]
   }
+`;
 
-  type Watch {
-    id: Int!
-    name: String!
-    caseMaterial: String!
-    companyId: Int!
-    diameter: Int!
-    price: Int
-  }
-
-  type Company {
-    id: Int!
-    name: String!
-    country: String
-  }
-`);
-
-module.exports = schema;
+module.exports = makeExecutableSchema({
+  typeDefs: [Company, Watch, Query]
+});

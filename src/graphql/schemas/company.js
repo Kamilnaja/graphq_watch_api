@@ -1,7 +1,7 @@
-const { buildSchema } = require("graphql");
-
-const company = buildSchema(`
-  
-`);
-
-module.exports = company;
+module.exports = `
+type Company {
+  id: Int!
+  name: String!
+  country: String
+}
+`;

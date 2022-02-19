@@ -1,10 +1,10 @@
-var { buildSchema } = require("graphql");
-
-const watch = buildSchema(`
-  
-  type Query {
-    getAllWatches: [Watch!]
+module.exports = `
+  type Watch {
+    id: Int!
+    name: String!
+    caseMaterial: String!
+    companyId: Int!
+    diameter: Int!
+    price: Int
   }
-`);
-
-module.exports = watch;
+`;
