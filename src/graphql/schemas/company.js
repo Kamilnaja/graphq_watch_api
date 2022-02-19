@@ -1,7 +1,7 @@
 module.exports = `
-type Company {
-  id: Int!
-  name: String!
-  country: String
-}
+  type Company {
+    id: Int!
+    name: String!
+    country: String
+  }
 `;

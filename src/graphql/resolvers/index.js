@@ -1,14 +1,14 @@
 const db = require("../../database/models");
 
-const rootValue = {
-  watch: async (root, args, context) => {
+module.exports = {
+  getAllWatches: async function (root, args, context) {
     try {
       return db.watch.findAll();
     } catch (err) {
       console.log(err);
     }
   },
-  company: async (root, args, context) => {
+  getAllCompanies: async (root, args, context) => {
     try {
       return db.company.findAll();
     } catch (err) {
@@ -16,5 +16,3 @@ const rootValue = {
     }
   },
 };
-
-module.exports = rootValue;

@@ -4,8 +4,8 @@ const Watch = require("./watch");
 
 const Query = `
   type Query {
-    watch: [Watch]
-    company: [Company]
+    getAllWatches: [Watch]
+    getAllCompanies: [Company]
   }
 `;
 
