@@ -11,6 +11,8 @@ module.exports = {
         },
         name: Sequelize.STRING,
         country: Sequelize.STRING,
+        createdAt: Sequelize.DATE,
+        updatedAt: Sequelize.DATE,
       }),
     ]);
   },

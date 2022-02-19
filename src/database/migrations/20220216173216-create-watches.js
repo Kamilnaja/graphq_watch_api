@@ -16,7 +16,7 @@ module.exports = {
           companyId: {
             type: Sequelize.INTEGER,
             references: {
-              model: "Company",
+              model: "Companies",
               key: "id",
               onDelete: "cascade",
               onUpdate: "cascade",
@@ -24,6 +24,8 @@ module.exports = {
           },
           diameter: Sequelize.INTEGER,
           price: Sequelize.INTEGER,
+          createdAt: Sequelize.DATE,
+          updatedAt: Sequelize.DATE,
         },
         {
           modelName: "Watch",

@@ -3,7 +3,7 @@
 module.exports = {
   async up(queryInterface) {
     return Promise.all([
-      queryInterface.bulkInsert("Company", [
+      queryInterface.bulkInsert("companies", [
         {
           name: "Rolex",
           country: "Switzerland",

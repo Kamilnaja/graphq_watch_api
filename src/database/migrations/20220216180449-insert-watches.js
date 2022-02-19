@@ -3,7 +3,7 @@
 module.exports = {
   async up(queryInterface) {
     return Promise.all([
-      queryInterface.bulkInsert("Watch", [
+      queryInterface.bulkInsert("Watches", [
         {
           name: "Rolex Submariner Hulk",
           diameter: 40,
