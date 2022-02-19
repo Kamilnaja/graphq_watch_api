@@ -3,7 +3,7 @@ const { graphqlHTTP } = require("express-graphql");
 const schema = require("./graphql/schemas/");
 const rootValue = require("./graphql/resolvers");
 const context = require("./graphql/context");
-
+const db = require("./database/models");
 const app = express();
 
 app.use(
@@ -11,7 +11,7 @@ app.use(
   graphqlHTTP({
     schema,
     rootValue,
-    context,
+    context: db,
     graphiql: true,
   })
 );

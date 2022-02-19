@@ -19,7 +19,6 @@ db.Sequelize = Sequelize;
 fs.readdirSync(__dirname)
   .filter((file) => file.indexOf(".") !== 0 && file !== "index.js")
   .forEach((file) => {
-    const modelName = getModelName(file);
     db[getModelName(file)] = require(path.join(__dirname, file))(
       sequelize,
       Sequelize
