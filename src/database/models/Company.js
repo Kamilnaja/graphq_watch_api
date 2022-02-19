@@ -7,8 +7,15 @@ module.exports = function (sequelize, Sequelize) {
         autoIncrement: true,
         primaryKey: true,
       },
-      name: Sequelize.STRING,
-      country: Sequelize.STRING,
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+      },
+      country: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
     },
     {
       modelName: "Company",

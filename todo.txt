@@ -1,8 +1,10 @@
 get watch by id
 get company by id
-enum types for case material
+x enum types for case material
 adding watch to watches
 adding company to companies 
+get all watches with producents 
 x get watches
 x get companies
 subscriptions
+resolvers modularization

@@ -8,7 +8,7 @@ module.exports = function (sequelize, Sequelize) {
         primaryKey: true,
       },
       name: Sequelize.STRING,
-      caseMaterial: Sequelize.STRING,
+      caseMaterial: Sequelize.ENUM('steel', 'plastic', 'silver', 'gold'),
       companyId: {
         type: Sequelize.INTEGER,
         references: {

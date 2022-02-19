@@ -16,6 +16,18 @@ module.exports = {
           name: "JLC",
           country: "Switzerland",
         },
+        {
+          name: "Casio",
+          country: "Japan",
+        },
+        {
+          name: "Seiko",
+          country: "Japan",
+        },
+        {
+          name: "CWC",
+          country: "United Kingdom",
+        },
       ]),
     ]);
   },
