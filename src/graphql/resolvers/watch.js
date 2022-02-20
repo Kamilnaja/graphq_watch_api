@@ -1,9 +1,7 @@
-const db = require("../../database/models");
-
-module.exports = {
-  Query: {
-    getAllWatches(root, args, context) {
-      return db.watch.findAll();
-    },
-  },
+module.exports = async function (root, args, ctx) {
+  try {
+    return ctx.watch.findAll();
+  } catch (err) {
+    console.log(err);
+  }
 };

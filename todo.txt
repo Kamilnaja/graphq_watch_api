@@ -7,4 +7,4 @@ get all watches with producents
 x get watches
 x get companies
 subscriptions
-resolvers modularization
+x resolvers modularization

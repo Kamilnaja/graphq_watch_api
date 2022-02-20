@@ -1,7 +1,7 @@
-const Company = require("../../database/models/Company");
-
-module.exports = {
-  async getAllCompanies(root, args, context) {
-    return Company.findAll();
-  },
+module.exports = async (root, args, ctx) => {
+  try {
+    return ctx.company.findAll();
+  } catch (err) {
+    console.log(err);
+  }
 };
