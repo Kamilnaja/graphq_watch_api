@@ -3,7 +3,7 @@ const company = require("./company");
 
 module.exports = {
   Query: {
-    getAllWatches: watch,
-    getAllCompanies: company,
+    getAllWatches: watch.getAllWatches,
+    getAllCompanies: company.getAllCompanies,
   },
 };
