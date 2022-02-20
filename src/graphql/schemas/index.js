@@ -1,14 +1,10 @@
 const { makeExecutableSchema } = require("@graphql-tools/schema");
 const Company = require("./company");
 const Watch = require("./watch");
-
-const Query = `
-  type Query {
-    getAllWatches: [Watch]
-    getAllCompanies: [Company]
-  }
-`;
+const resolvers = require("./../resolvers");
+const Query = require("./query");
 
 module.exports = makeExecutableSchema({
-  typeDefs: [Company, Watch, Query]
+  typeDefs: [Company, Watch, Query],
+  resolvers,
 });
