@@ -1,9 +1,13 @@
 const watch = require("./watch");
 const company = require("./company");
+const { getWatch, getAllWatches } = watch;
+const { getCompany, getAllCompanies } = company;
 
 module.exports = {
   Query: {
-    getAllWatches: watch.getAllWatches,
-    getAllCompanies: company.getAllCompanies,
+    getWatch,
+    getAllWatches,
+    getCompany,
+    getAllCompanies,
   },
 };
