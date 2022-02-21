@@ -3,5 +3,6 @@ module.exports = `
     id: Int!
     name: String!
     country: String
+    watches: [Watch]
   }
 `;

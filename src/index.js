@@ -11,6 +11,9 @@ app.use(
     schema,
     context: db,
     graphiql: true,
+    logger: {
+      log: console.log
+    }
   })
 );
 
