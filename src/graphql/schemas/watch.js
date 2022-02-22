@@ -3,7 +3,8 @@ module.exports = `
     id: Int!
     name: String!
     caseMaterial: String!
-    company: Company!
+    companyId: Int
+    company: Company
     diameter: Int!
     price: Int
   }

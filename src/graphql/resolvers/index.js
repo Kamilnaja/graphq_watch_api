@@ -1,13 +1,18 @@
-const watch = require("./watch");
-const company = require("./company");
-const { getWatch, getAllWatches } = watch;
-const { getCompany, getAllCompanies } = company;
+const db = require("../../database/models");
+const watch = require("../../graphql/resolvers/watch");
+const company = require("../../graphql/resolvers/company");
 
-module.exports = {
-  Query: {
-    getWatch,
-    getAllWatches,
-    getCompany,
-    getAllCompanies,
-  },
+const Query = {
+  ...watch,
+  ...company,
 };
+
+const Watch = {
+  company: (watch) => db.company.findByPk(watch.companyId),
+};
+
+const Company = {
+  // todo - implement
+};
+
+module.exports = { Query, Watch, Company };
