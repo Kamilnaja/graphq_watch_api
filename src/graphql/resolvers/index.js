@@ -1,11 +1,15 @@
 const db = require("../../database/models");
-const watch = require("../../graphql/resolvers/watch");
-const company = require("../../graphql/resolvers/company");
+const watch = require("./watchResolver");
+const company = require("./companyResolver");
 
 const Query = {
   ...watch,
   ...company,
 };
+
+const Mutation = {
+  
+}
 
 const Watch = {
   company: (watch) =>
