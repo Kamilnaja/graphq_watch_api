@@ -1,9 +1,7 @@
 getAllCompanies = async (_, __, ctx) => {
   try {
     return await ctx.company.findAll({
-      attributes: {
-        exclude: ["createdAt", "updatedAt"],
-      },
+      exclude: ["createdAt", "updatedAt"],
     });
   } catch (err) {
     console.log(err);

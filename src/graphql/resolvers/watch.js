@@ -1,14 +1,9 @@
 getAllWatches = async (_, __, ctx) => {
   try {
-    return ctx.watch.findAll({
-      attributes: [
-        "id",
-        "name",
-        "caseMaterial",
-        "companyId",
-        "diameter",
-        "price",
-      ],
+    return await ctx.watch.findAll({
+      attributes: {
+        exclude: ["createdAt", "updatedAt"],
+      },
     });
   } catch (err) {
     console.log(err);
@@ -17,15 +12,10 @@ getAllWatches = async (_, __, ctx) => {
 
 getWatch = async (_, args, ctx) => {
   try {
-    return ctx.watch.findByPk(args.id, {
-      attributes: [
-        "id",
-        "name",
-        "caseMaterial",
-        "companyId",
-        "diameter",
-        "price",
-      ],
+    return await ctx.watch.findByPk(args.id, {
+      attributes: {
+        exclude: ["createdAt", "updatedAt"],
+      },
     });
   } catch (err) {
     console.log(err);

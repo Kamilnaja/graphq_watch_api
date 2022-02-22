@@ -8,13 +8,23 @@ const Query = {
 };
 
 const Watch = {
-  company: (watch) => db.company.findByPk(watch.companyId),
+  company: (watch) =>
+    db.company.findByPk(watch.companyId, {
+      attributes: {
+        exclude: ["createdAt", "updatedAt"],
+      },
+    }),
 };
 
 const Company = {
   watches: (company) => {
-    return db.watch.findAll({ where: { 'companyId': company.id } });
-  }
+    return db.watch.findAll({
+      where: { companyId: company.id },
+      attributes: {
+        exclude: ["createdAt", "updatedAt"],
+      },
+    });
+  },
 };
 
 module.exports = { Query, Watch, Company };
