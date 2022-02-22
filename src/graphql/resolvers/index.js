@@ -12,7 +12,9 @@ const Watch = {
 };
 
 const Company = {
-  // todo - implement
+  watches: (company) => {
+    return db.watch.findAll({ where: { 'companyId': company.id } });
+  }
 };
 
 module.exports = { Query, Watch, Company };

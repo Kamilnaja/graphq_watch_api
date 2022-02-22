@@ -1,7 +1,9 @@
 getAllCompanies = async (_, __, ctx) => {
   try {
-    return ctx.company.findAll({
-      attributes: ["id", "name", "country"],
+    return await ctx.company.findAll({
+      attributes: {
+        exclude: ["createdAt", "updatedAt"],
+      },
     });
   } catch (err) {
     console.log(err);
@@ -10,8 +12,10 @@ getAllCompanies = async (_, __, ctx) => {
 
 getCompany = async (_, args, ctx) => {
   try {
-    return ctx.company.findByPk(args.id, {
-      attributes: ["id", "name", "country"],
+    return await ctx.company.findByPk(args.id, {
+      attributes: {
+        exclude: ["createdAt", "updatedAt"],
+      },
     });
   } catch (err) {
     console.log(err);
